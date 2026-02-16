@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f4f4f5;
+  --foreground: #27272a;
+}
+
+.dark {
+  --background: #050507;
+  --foreground: #e4e4e7;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode gets the radial gradient overlay */
+.dark body {
+  background: radial-gradient(ellipse at 50% 40%, #0c0c1a 0%, #050507 70%);
+}
+
+/* Volume slider styling */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #0891b2;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 4px rgba(8, 145, 178, 0.3);
+}
+
+.slider::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #0891b2;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 4px rgba(8, 145, 178, 0.3);
+}
+
+.dark .slider::-webkit-slider-thumb {
+  background: #22d3ee;
+  border-color: #1f2937;
+  box-shadow: 0 0 4px rgba(34, 211, 238, 0.5);
+}
+
+.dark .slider::-moz-range-thumb {
+  background: #22d3ee;
+  border-color: #1f2937;
+  box-shadow: 0 0 4px rgba(34, 211, 238, 0.5);
+}
